@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Mulher Especial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --rose-gold: #b76e79;
+            --soft-cream: #fffaf0;
+            --deep-rose: #8e4a4a;
+        }
+        body {
+            background-color: var(--soft-cream);
+            color: #4a3737;
+            font-family: 'Lora', serif;
+            overflow-x: hidden;
+        }
+        .dancing-script { font-family: 'Dancing Script', cursive; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .step-content {
+            display: none;
+            animation: fadeInPage 0.8s ease-in-out;
+        }
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c0-10 10-10 10 0s-10 10-10 0z' fill='%23b76e79' fill-opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        .heart-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, #b76e79 0%, #d4a5a5 100%);
+            color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-custom:hover {
+            filter: brightness(1.1);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(183, 110, 121, 0.3);
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .progress-inner {
+            height: 100%;
+            background: var(--rose-gold);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen flex items-center justify-center p-4 md:p-8">
+
+    <!-- Container Principal -->
+    <div id="main-card" class="max-w-3xl w-full glass-card rounded-[2rem] shadow-2xl p-8 md:p-16 relative overflow-hidden">
+        
+        <!-- Barra de Progresso -->
+        <div class="progress-bar">
+            <div id="progress" class="progress-inner"></div>
+        </div>
+
+        <!-- Elementos Decorativos -->
+        <div class="absolute top-0 right-0 p-6 text-rose-200 pointer-events-none">
+            <i data-lucide="flower" class="w-20 h-20 opacity-20"></i>
+        </div>
+        <div class="absolute bottom-0 left-0 p-6 text-rose-200 pointer-events-none">
+            <i data-lucide="sparkles" class="w-20 h-20 opacity-20"></i>
+        </div>
+
+        <!-- Passo 1: Capa -->
+        <div id="step-1" class="step-content active text-center py-8">
+            <div class="flex justify-center mb-8">
+                <div class="p-6 rounded-full bg-rose-50 text-rose-400 floating">
+                    <i data-lucide="heart" class="w-16 h-16 fill-current"></i>
+                </div>
+            </div>
+            <h2 class="dancing-script text-5xl md:text-6xl text-rose-700 mb-6 leading-tight">Para a mulher que mudou o meu mundo</h2>
+            <p class="montserrat text-xs tracking-[0.3em] uppercase text-gray-400 mb-8 font-semibold">8 de Março • Dia Internacional da Mulher</p>
+            <p class="italic text-xl text-gray-600 mb-12 max-w-md mx-auto">Preparei algo especial para celebrar quem você é e o que construímos nestes dois anos.</p>
+            <button onclick="nextStep(2)" class="btn-custom montserrat px-12 py-4 rounded-full font-bold shadow-xl text-sm uppercase tracking-widest">Abrir com amor</button>
+        </div>
+
+        <!-- Passo 2: O Início e os 2 Anos -->
+        <div id="step-2" class="step-content text-center py-6">
+            <i data-lucide="calendar-heart" class="w-10 h-10 text-rose-400 mx-auto mb-6"></i>
+            <h3 class="dancing-script text-4xl text-rose-700 mb-8">Meu Amor,</h3>
+            <div class="space-y-8 text-xl leading-relaxed text-gray-700 italic">
+                <p class="fade-in">Hoje, no Dia Internacional da Mulher, eu poderia escrever sobre a força de todas as mulheres do mundo...</p>
+                <p class="fade-in">Mas meu coração me obriga a focar na única que redefiniu o que essa força significa para mim.</p>
+                <div class="p-8 border-y border-rose-100 my-8 fade-in">
+                    <p class="text-rose-800 font-medium">Celebrar você hoje é um exercício de gratidão.</p>
+                    <p class="text-3xl dancing-script text-rose-600 mt-4">Já se passaram dois anos...</p>
+                </div>
+                <p class="fade-in">Dois anos caminhando lado a lado. Olhar para trás me faz perceber o quanto o "eu" de hoje é grato ao "eu" que te conheceu.</p>
+            </div>
+            <button onclick="nextStep(3)" class="btn-custom montserrat px-10 py-4 rounded-full mt-12 font-semibold shadow-lg">Continuar lendo</button>
+        </div>
+
+        <!-- Passo 3: A Edificação e Amadurecimento -->
+        <div id="step-3" class="step-content py-6">
+            <div class="flex items-center gap-4 mb-8 justify-center">
+                <div class="h-px w-12 bg-rose-200"></div>
+                <h3 class="dancing-script text-4xl text-rose-700 text-center">A força que edifica</h3>
+                <div class="h-px w-12 bg-rose-200"></div>
+            </div>
+            
+            <div class="space-y-8 text-lg leading-relaxed text-gray-700">
+                <p class="fade-in">Quero te agradecer, acima de tudo, pela forma como você me <strong>edifica</strong>. Existe uma nobreza rara no seu jeito de amar, que não aceita o raso e que me desafia a ser profundo.</p>
+                
+                <p class="fade-in">Você não apenas esteve ao meu lado; você foi o espelho que me mostrou onde eu precisava crescer.</p>
+                
+                <div class="bg-rose-50/50 p-8 rounded-[2rem] border-l-8 border-rose-400 my-10 fade-in shadow-inner">
+                    <p class="italic text-rose-900 text-xl leading-relaxed">
+                        "Com delicadeza, mas com a firmeza de quem sabe o que merece, você me ajudou a deixar para trás as posturas imaturas e a visão limitada que eu tinha sobre a vida."
+                    </p>
+                </div>
+                
+                <p class="fade-in">Ao seu lado, aprendi que a verdadeira masculinidade não está na impulsividade, mas na <strong>consistência, no cuidado e na responsabilidade</strong>.</p>
+                <p class="fade-in text-rose-800 font-semibold">Você me lapidou, não para me mudar, mas para que eu pudesse finalmente me tornar o homem que você merece ter por perto.</p>
+            </div>
+            <div class="text-center mt-12">
+                <button onclick="nextStep(4)" class="btn-custom montserrat px-10 py-4 rounded-full font-semibold shadow-lg">O que eu vejo em você</button>
+            </div>
+        </div>
+
+        <!-- Passo 4: Celebração de Qualidades -->
+        <div id="step-4" class="step-content py-6">
+            <h3 class="dancing-script text-4xl text-rose-700 mb-10 text-center">Neste dia, eu celebro:</h3>
+            
+            <div class="grid gap-8">
+                <div class="flex items-start gap-6 fade-in p-6 rounded-2xl bg-white/50 hover:bg-white transition-colors duration-300 shadow-sm">
+                    <div class="p-3 bg-rose-100 rounded-xl text-rose-600">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-rose-800 text-xl mb-1">Sua Resiliência</h4>
+                        <p class="text-gray-600 leading-relaxed">A forma como você equilibra suas lutas com um sorriso que ilumina qualquer dia cinza.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6 fade-in p-6 rounded-2xl bg-white/50 hover:bg-white transition-colors duration-300 shadow-sm">
+                    <div class="p-3 bg-rose-100 rounded-xl text-rose-600">
+                        <i data-lucide="brain" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-rose-800 text-xl mb-1">Sua Sabedoria</h4>
+                        <p class="text-gray-600 leading-relaxed">A capacidade de me dar o conselho certo no momento exato, muitas vezes sem precisar dizer uma palavra.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-6 fade-in p-6 rounded-2xl bg-white/50 hover:bg-white transition-colors duration-300 shadow-sm">
+                    <div class="p-3 bg-rose-100 rounded-xl text-rose-600">
+                        <i data-lucide="stars" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-rose-800 text-xl mb-1">Sua Alma</h4>
+                        <p class="text-gray-600 leading-relaxed">Essa luz que faz com que eu ainda descubra novos motivos para me apaixonar por você todos os dias.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="nextStep(5)" class="btn-custom montserrat px-10 py-4 rounded-full font-semibold shadow-lg">Palavras finais</button>
+            </div>
+        </div>
+
+        <!-- Passo 5: Conclusão -->
+        <div id="step-5" class="step-content text-center py-6">
+            <div class="heart-animation text-rose-500 mb-8">
+                <i data-lucide="heart" class="w-20 h-20 mx-auto fill-current"></i>
+            </div>
+            <div class="space-y-8 text-xl text-gray-700 leading-relaxed italic">
+                <p class="fade-in">Obrigado por ser meu porto seguro e o vento que me impulsiona para frente.</p>
+                <p class="fade-in font-bold text-rose-800 text-2xl md:text-3xl leading-tight">
+                    Obrigado por me ensinar que o amor de verdade constrói, amadurece e transforma.
+                </p>
+                <div class="py-8 fade-in">
+                    <h2 class="dancing-script text-5xl text-rose-700 mb-2">Feliz Dia da Mulher,</h2>
+                    <h2 class="dancing-script text-5xl text-rose-700">minha princesa.</h2>
+                </div>
+                <p class="montserrat text-lg text-gray-400 tracking-wide fade-in">Eu amo você e a jornada que estamos construindo.</p>
+            </div>
+            
+            <div class="mt-16 pt-10 border-t border-rose-100 fade-in">
+                <p class="dancing-script text-3xl text-rose-600">Com todo o meu amor, para sempre.</p>
+            </div>
+            
+            <button onclick="restart()" class="mt-12 text-rose-300 hover:text-rose-500 text-xs transition-colors uppercase tracking-[0.2em] font-bold">
+                Ler novamente
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Inicializa os ícones Lucide
+        lucide.createIcons();
+
+        const totalSteps = 5;
+
+        function updateProgress(step) {
+            const percentage = ((step - 1) / (totalSteps - 1)) * 100;
+            document.getElementById('progress').style.width = `${percentage}%`;
+        }
+
+        function nextStep(stepNumber) {
+            // Esconde todos os passos
+            const steps = document.querySelectorAll('.step-content');
+            steps.forEach(step => {
+                step.classList.remove('active');
+            });
+
+            // Mostra o passo atual
+            const currentStep = document.getElementById(`step-${stepNumber}`);
+            currentStep.classList.add('active');
+
+            // Atualiza progresso
+            updateProgress(stepNumber);
+
+            // Aciona as animações de fade-in no novo passo
+            const fades = currentStep.querySelectorAll('.fade-in');
+            fades.forEach((el, index) => {
+                el.classList.remove('visible'); // Reset
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 400 + 200); 
+            });
+
+            // Scroll para o topo suave
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function restart() {
+            const steps = document.querySelectorAll('.step-content');
+            steps.forEach(step => {
+                step.classList.remove('active');
+                const fades = step.querySelectorAll('.fade-in');
+                fades.forEach(f => f.classList.remove('visible'));
+            });
+            nextStep(1);
+        }
+
+        // Inicia
+        window.onload = () => {
+            updateProgress(1);
+            // Pequeno delay inicial para charme
+            setTimeout(() => {
+                const firstStep = document.querySelector('#step-1');
+                const fades = firstStep.querySelectorAll('.fade-in');
+                fades.forEach((el, index) => {
+                    setTimeout(() => el.classList.add('visible'), index * 400);
+                });
+            }, 500);
+        };
+    </script>
+</body>
+</html>
